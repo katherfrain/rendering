@@ -1,12 +1,16 @@
-
 function renderCircles(circles) {
     // HINT: You probably need to write a for loop!
     //       Or, if you're feeling fancy, use .map() 
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(circles)}</code>
-        </div>
-    `
+    
+    let htmlString = "";
+    for(let circle = 0; circle < circles.length; circle++) {
+        const currentcircle = circles[circle];
+        htmlString = htmlString + `<div style = "height: ${currentcircle.radius*2}px; width: ${currentcircle.radius*2}px; border-radius: ${currentcircle.radius}px; background-color: ${currentcircle.color}"></div>`
+        }
+    return ` 
+    <div class="text-center mt-5"> 
+        ${htmlString}
+    </div> `
 }
 
 function circles() {
@@ -34,3 +38,4 @@ function circles() {
     content.innerHTML = renderCircles(circlesAbstraction);
 
 }
+
